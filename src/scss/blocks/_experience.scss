@@ -1,0 +1,147 @@
+// blocks/_experience.scss
+@use 'variables';
+
+.experience {
+    padding: 60px 0;
+    background-color: variables.$light;
+
+    &__head {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        color: variables.$dark;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 4px;
+            margin-top: 10px;
+            border-radius: 2px;
+            background-color: variables.$accent;
+        }
+    }
+}
+
+.timeline {
+    margin: 0;
+    padding: 0 0 0 16px;
+    list-style: none;
+    border-left: 2px solid rgba(0, 0, 0, .12);
+
+    &__item {
+        position: relative;
+        padding-bottom: 28px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: -28px;
+            width: 22px;
+            height: 22px;
+            border: 2px solid variables.$accent;
+            background: variables.$light;
+            border-radius: 50%;
+        }
+    }
+
+    &__card {
+        padding: 0 18px 16px 18px;
+        background: variables.$light;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    }
+
+    &__role {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin: 0 0 8px;
+        color: variables.$dark;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    &__date {
+        margin-left: auto;
+        font-weight: 700;
+        font-size: 14px;
+        color: variables.$dark;
+        opacity: .85;
+    }
+
+    &__company {
+        margin: 6px 0 10px;
+        color: variables.$muted;
+        font-style: italic;
+    }
+
+    &__project-title {
+        font-weight: 700;
+        margin: 0 0 6px;
+        color: variables.$dark;
+    }
+
+    &__list {
+        margin: 0;
+        padding-left: 18px;
+
+        & li {
+            color: variables.$dark;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+    }
+}
+
+.timeline__item:last-child .timeline__card {
+    box-shadow: 0 0 0;
+}
+
+.timeline__project+.timeline__project {
+    margin-top: 14px;
+}
+
+@media (max-width: variables.$bp-lg) {
+
+    .experience {
+        padding: 48px 0;
+
+        &__title {
+            font-size: 28px;
+
+            &::after {
+                width: 48px;
+            }
+        }
+    }
+
+
+    .timeline__role {
+        font-size: 18px;
+    }
+
+    .timeline__date {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: variables.$bp-sm) {
+    .experience {
+        padding: 36px 0;
+    }
+
+    .timeline__role {
+        font-size: 17px;
+    }
+}

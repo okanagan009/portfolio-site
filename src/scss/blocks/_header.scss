@@ -1,0 +1,162 @@
+// blocks/_header.scss
+@use 'variables';
+
+.header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: variables.$mirage;
+    color: variables.$light;
+
+    &__inner {
+        height: 100%;
+        padding: 0 10px;
+        overflow-y: auto
+    }
+
+    &__profile {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-top: 20px;
+    }
+
+    &__avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 15px;
+        border: 8px solid #212431;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 0%;
+            transform-origin: 55% 35%;
+            transform: scale(1.16);
+        }
+
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: variables.$light;
+    }
+
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    &__nav {
+        margin-top: auto;
+        width: 100%;
+
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav__link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: variables.$light;
+            font-size: 16px;
+            transition: background-color .3s;
+
+            &:hover,
+            &:focus-visible {
+                background-color: variables.$accent;
+
+                .nav__icon {
+                    background-color: variables.$accent; // фон кружка меняется
+                    transform: scale(1.05); // лёгкий зум
+                }
+
+                .nav__icon img {
+                    transform: scale(1.06); // иконка увеличивается
+                    filter: brightness(1.1); // подсветка
+                }
+            }
+        }
+
+        .nav__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: #212431;
+            border-radius: 50%;
+            transition: background-color .3s;
+        }
+
+        .nav__icon img {
+            display: block;
+            width: 20px;
+            height: 20px;
+
+        }
+    }
+}
+
+
+.social {
+    &__link {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #212431;
+        transition: background-color .25s ease, transform .25s ease, box-shadow .25s ease;
+
+        &:hover,
+        &:focus-visible {
+            background-color: variables.$accent;
+            transform: translateZ(0) scale(1.06);
+            box-shadow: 0 6px 16px rgba(31, 117, 187, .35);
+            outline: none;
+        }
+    }
+
+    &__link img {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform .25s ease, filter .25s ease;
+    }
+
+    &__link:hover img,
+    &__link:focus-visible img {
+        transform: translate(-50%, -50%) scale(1.12);
+        filter: brightness(1.1);
+    }
+}
+
+
+@media (max-width: variables.$bp-lg) {
+    .header {
+        transform: translateX(-100%);
+        transition: transform .3s ease;
+        width: 240px;
+
+        &--open {
+            transform: translateX(0);
+        }
+    }
+}

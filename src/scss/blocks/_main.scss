@@ -1,0 +1,11 @@
+@use 'variables';
+
+.main {
+  margin-left: variables.$sidebar-w;
+}
+
+@media (max-width: variables.$bp-lg) {
+  .main {
+    margin-left: 0;
+  }
+}  

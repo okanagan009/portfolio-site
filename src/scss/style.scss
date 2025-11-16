@@ -1,0 +1,30 @@
+//  libraries
+
+@use "normalize";
+
+@use "variables";
+@use "mixins";
+@use "fonts";
+// @use "grid";
+@use "scaffolding";   
+
+//  modules
+
+
+//  blocks   
+
+@use 'blocks/header';
+@use 'blocks/main';
+@use 'blocks/about';
+@use 'blocks/skills';
+@use 'blocks/experience';
+@use 'blocks/projects';
+@use 'blocks/burger';
+
+   
+
+
+ 
+
+
+

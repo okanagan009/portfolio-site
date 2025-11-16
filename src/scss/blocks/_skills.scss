@@ -1,0 +1,126 @@
+@use 'variables';
+
+.skills {
+    padding: 60px 0;
+    background-color: #eef2f6;
+
+    &__head {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        color: #1C2B36;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 4px;
+            margin-top: 10px;
+            border-radius: 2px;
+            background-color: variables.$accent;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px 48px;
+        margin-top: 20px;
+    }
+
+    &__col {
+        display: grid;
+        gap: 18px;
+    }
+}
+
+.skill {
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+    }
+
+    &__name {
+        color: variables.$dark;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: .5px;
+    }
+
+    &__value {
+        color: variables.$dark;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    &__bar {
+        height: 10px;
+        border-radius: 6px;
+        background-color: rgba(31, 117, 187, .18);
+        overflow: hidden;
+    }
+
+    &__fill {
+        --skill: 0%;
+        width: var(--skill);
+        height: 100%;
+        background: linear-gradient(90deg, variables.$accent 0%, variables.$accent 100%);
+        border-radius: 6px;
+        animation: skill-grow .9s ease forwards;
+    }
+}
+
+@keyframes skill-grow {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: var(--skill);
+    }
+}
+
+@media (max-width: variables.$bp-lg) {
+    .skills {
+        padding: 48px 0;
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+    }
+}
+
+@media (max-width: variables.$bp-sm) {
+    .skills {
+        padding: 36px 0;
+
+        &__title {
+            font-size: 28px;
+
+            &::after {
+                width: 48px;
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skill__fill {
+        animation: none;
+    }
+}

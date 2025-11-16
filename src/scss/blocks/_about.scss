@@ -1,0 +1,119 @@
+@use 'variables';
+
+.about {
+    padding: 60px 0;
+
+    &__head {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        color: #1C2B36;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 4px;
+            margin-top: 10px;
+            background-color: variables.$accent;
+            border-radius: 2px;
+        }
+    }
+
+    &__content {
+        max-width: 900px;
+    }
+
+    &__heading {
+        color: #1C2B36;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.25;
+        margin: 16px 0 18px;
+    }
+
+    &__facts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 40px;
+        margin: 0 0 20px;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__fact {
+        position: relative;
+        padding-left: 22px;
+        color: variables.$dark;
+        font-size: 16px;
+        line-height: 24px;
+
+        &::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: variables.$accent;
+            font-weight: 700;
+            line-height: 24px;
+        }
+
+        span {
+            font-weight: 700;
+            color: variables.$dark;
+            margin-right: 6px;
+        }
+    }
+
+    &__text {
+        color: variables.$dark;
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    & a {
+        display: inline-block;
+    }
+}
+
+@media (max-width: variables.$bp-lg) {
+    .about {
+        padding: 48px 0;
+
+        &__heading {
+            font-size: 28px;
+        }
+
+        &__facts {
+            grid-template-columns: 1fr;
+            gap: 12px 20px;
+        }
+
+        &__content {
+            max-width: 100%;
+        }
+    }
+}
+
+@media (max-width: variables.$bp-sm) {
+    .about {
+        padding: 36px 0;
+
+        &__title {
+
+            &::after {
+                width: 48px;
+            }
+        }
+
+        &__heading {
+            font-size: 24px;
+        }
+    }
+}

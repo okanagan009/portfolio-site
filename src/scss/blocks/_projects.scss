@@ -1,0 +1,206 @@
+@use 'variables';
+
+.projects {
+    padding: 60px 0;
+    background-color: #eef2f6;
+
+    &__head {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        position: relative;
+        display: inline-block;
+        color: variables.$dark;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.2;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 56px;
+            height: 4px;
+            margin-top: 10px;
+            border-radius: 2px;
+            background-color: variables.$accent;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 8px;
+        color: variables.$muted;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__panels {
+        margin-top: 16px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 20px;
+    }
+}
+
+.tabs {
+    display: inline-flex;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 999px;
+    background: #fff;
+
+    &__trigger {
+        appearance: none;
+        border: 0;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font: inherit;
+        cursor: pointer;
+        color: variables.$dark;
+        background: transparent;
+        transition: background-color .25s ease, color .25s ease, box-shadow .25s ease;
+
+        &.is-active,
+        &:hover,
+        &:focus-visible {
+            color: variables.$accent;
+            background: rgba(31, 117, 187, .08);
+            box-shadow: 0 2px 8px rgba(31, 117, 187, .15);
+            outline: none;
+        }
+    }
+}
+
+.project-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+    transition: transform .25s ease, box-shadow .25s ease;
+
+    &:hover,
+    &:focus-within {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(31, 117, 187, .12);
+    }
+
+    &__media {
+        aspect-ratio: 16/9;
+        background: #dfe6ee;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, .0);
+        opacity: 0;
+        transition: opacity .25s ease, background-color .25s ease;
+        pointer-events: none;
+    }
+
+    &:hover &__overlay,
+    &:focus-within &__overlay {
+        background: rgba(255, 255, 255, .32);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &__btn {
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: variables.$accent;
+        color: variables.$light;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+
+        &:hover,
+        &:focus-visible {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(31, 117, 187, .25);
+            outline: none;
+        }
+
+        &.button--ghost {
+            background: #fff;
+            color: variables.$accent;
+            box-shadow: 0 0 0 1px rgba(31, 117, 187, .25) inset;
+        }
+    }
+}
+
+.tabs__panel {
+    display: none;
+
+}
+
+.tabs__panel.is-active {
+    display: block;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .tabs__panel.is-active,
+    .projects__grid.reveal .project-card {
+        animation: none !important;
+    }
+}
+
+@media (max-width: variables.$bp-lg) {
+    .projects {
+        padding: 48px 0;
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: variables.$bp-sm) {
+    .projects {
+        padding: 36px 0;
+
+        &__title {
+            font-size: 28px;
+
+            &::after {
+                width: 48px;
+            }
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+
+    .tabs {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .project-card__overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}

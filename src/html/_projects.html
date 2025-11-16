@@ -1,0 +1,85 @@
+<section id="projects" class="projects">
+    <div class="projects__container container">
+        <header class="projects__head">
+            <h2 class="projects__title">Проекты</h2>
+            <p class="projects__subtitle">Тут выложены некоторые мои проекты:</p>
+        </header>
+
+        <div class="projects__tabs tabs" role="tablist" aria-label="Фильтр проектов">
+            <button class="tabs__trigger is-active" role="tab" id="tab-all" aria-selected="true"
+                aria-controls="panel-all" data-tab-target="all">Все</button>
+            <button class="tabs__trigger" role="tab" id="tab-web" aria-selected="false" aria-controls="panel-web"
+                data-tab-target="web">Лендинги</button>
+            <button class="tabs__trigger" role="tab" id="tab-apps" aria-selected="false" aria-controls="panel-apps"
+                data-tab-target="apps">Приложения</button>
+        </div>
+
+        <div class="projects__panels">
+            <div class="tabs__panel is-active" role="tabpanel" id="panel-all" aria-labelledby="tab-all" data-tab="all">
+                <div class="projects__grid">   
+                    <article class="project-card" data-category="web">
+                        <div class="project-card__media">
+                            <img src="img/projects-p1.jpg" alt="Скриншот Trinity">
+                        </div>
+                        <div class="project-card__overlay">
+                            <a class="project-card__btn button" href="https://trinity-pi.vercel.app/" target="_blank"
+                                rel="noopener">Демо</a>
+                            <a class="project-card__btn button button--ghost"
+                                href="https://github.com/okanagan009/Trinity" target="_blank" rel="noopener"
+                                aria-label="Смотреть код на GitHub">Код</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="web">
+                        <div class="project-card__media">
+                            <img src="img/projects-p2.jpg" alt="Скриншот vetcentr">
+                        </div>
+                        <div class="project-card__overlay">
+                            <a class="project-card__btn button" href="https://vetcentr.vercel.app/" target="_blank"
+                                rel="noopener">Демо</a>
+                            <a class="project-card__btn button button--ghost"
+                                href="https://github.com/okanagan009/vetcentr" target="_blank" rel="noopener">Код</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-category="apps">
+                        <div class="project-card__media">
+                            <img src="img/projects-p3.jpg" alt="Скриншот IP-address-info">
+                        </div>
+                        <div class="project-card__overlay">
+                            <a class="project-card__btn button" href="https://ip-address-info-eaoy.vercel.app/"
+                                target="_blank" rel="noopener">Демо</a>
+                            <a class="project-card__btn button button--ghost"
+                                href="https://github.com/okanagan009/IP-address-info" target="_blank"
+                                rel="noopener">Код</a>
+                        </div>
+                    </article>
+                    <article class="project-card" data-category="apps">
+                        <div class="project-card__media">
+                            <img src="img/projects-p4.jpg" alt="Скриншот keep-to-do"> 
+                        </div>
+                        <div class="project-card__overlay">
+                            <a class="project-card__btn button" href="https://keep-to-do.vercel.app/"
+                                target="_blank" rel="noopener">Демо</a>
+                            <a class="project-card__btn button button--ghost"
+                                href="https://github.com/okanagan009/keep-to-do" target="_blank"
+                                rel="noopener">Код</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="panel-web" aria-labelledby="tab-web" data-tab="web">
+                <div class="projects__grid">
+
+                </div>
+            </div>
+
+            <div class="tabs__panel" role="tabpanel" id="panel-apps" aria-labelledby="tab-apps" data-tab="apps">
+                <div class="projects__grid">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
